@@ -5,6 +5,7 @@ const state_name = "walk"
 @export var move_speed: float = 100.0
 
 @onready var idle: State = $"../Idle"
+@onready var attack: State = $"../Attack"
 
 func enter() -> void:
 	character.update_animation(state_name)
@@ -32,4 +33,6 @@ func physics(_delta: float) -> State:
 
 
 func handle_input(_event: InputEvent) -> State:
+	if _event.is_action_pressed("attack"):
+			return attack
 	return null
