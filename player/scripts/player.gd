@@ -19,14 +19,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("face_down"):
-		pressed_face_direction = Vector2.DOWN
-	elif event.is_action_pressed("face_up"):
-		pressed_face_direction = Vector2.UP
-	elif event.is_action_pressed("face_left"):
-		pressed_face_direction = Vector2.LEFT
-	elif event.is_action_pressed("face_right"):
-		pressed_face_direction = Vector2.RIGHT
+	pressed_face_direction = FaceUtils.get_face_direction_from_event(event)
 
 
 func update_move_direction() -> void:
@@ -37,11 +30,7 @@ func update_move_direction() -> void:
 
 
 func get_face_direction() -> Vector2:
-	if pressed_face_direction != Vector2.ZERO and (
-		Input.is_action_pressed("face_up") or
-		Input.is_action_pressed("face_down") or
-		Input.is_action_pressed("face_left") or
-		Input.is_action_pressed("face_right")):
+	if pressed_face_direction != Vector2.ZERO and FaceUtils.is_face_direction_pressed():
 			# Use pressed direction if any face directions are pressed
 			return pressed_face_direction
 	else:

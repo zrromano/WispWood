@@ -1,11 +1,14 @@
-class_name State_Idle extends State
+class_name PlayerState_Idle extends State
 
 const state_name = "idle"
+
+var player: Player
 
 @onready var walk: State = $"../Walk"
 @onready var attack: State = $"../Attack"
 
 func enter() -> void:
+	player = character
 	character.update_animation(state_name)
 	pass
 
@@ -15,12 +18,12 @@ func exit() -> void:
 
 
 func process(_delta: float) -> State:
-	if character.move_direction != Vector2.ZERO:
+	if player.move_direction != Vector2.ZERO:
 		return walk
 	
-	character.velocity = Vector2.ZERO
-	if character.update_face_direction():
-		character.update_animation(state_name)
+	player.velocity = Vector2.ZERO
+	if player.update_face_direction():
+		player.update_animation(state_name)
 	
 	return null
 
@@ -29,7 +32,7 @@ func physics(_delta: float) -> State:
 	return null
 
 
-func handle_input(_event: InputEvent) -> State:
-	if _event.is_action_pressed("attack"):
+func handle_input(event: InputEvent) -> State:
+	if FaceUtils.get_face_direction_from_event(event) != Vector2.ZERO:
 			return attack
 	return null

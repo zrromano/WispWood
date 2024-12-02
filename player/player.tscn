@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://player/scripts/player.gd" id="1_0eitu"]
 [ext_resource type="Texture2D" uid="uid://dg6djioi2ntbe" path="res://player/sprites/PlayerSprite.png" id="2_8v1gx"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_ralp2"]
-[ext_resource type="Script" path="res://player/states/state_idle.gd" id="4_52hf3"]
-[ext_resource type="Script" path="res://player/states/state_walk.gd" id="5_5n52a"]
-[ext_resource type="Script" path="res://player/states/state_attack.gd" id="6_tngls"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="3_ralp2"]
+[ext_resource type="Script" path="res://player/scripts/states/state_idle.gd" id="4_52hf3"]
+[ext_resource type="Script" path="res://player/scripts/states/state_walk.gd" id="5_5n52a"]
+[ext_resource type="Script" path="res://player/scripts/states/state_attack.gd" id="6_tngls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5j05"]
 

@@ -23,7 +23,11 @@ func _physics_process(delta: float) -> void:
 
 
 func update_face_direction() -> bool:
-	var new_direction: Vector2 = get_face_direction()
+	var new_direction: Vector2
+	if state_machine.current_state.has_method("get_face_direction"):
+		new_direction = state_machine.current_state.get_face_direction()
+	else:
+		new_direction = get_face_direction()
 	
 	if new_direction == face_direction:
 		return false # No change in direction
