@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="Wisp Wood"
-run/main_scene="res://playground.tscn"
+run/main_scene="res://scenes/levels/playground.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Exit="*res://scripts/inputs/exit.gd"
-FaceDirections="*res://scripts/inputs/face_utils.gd"
-InputManager="*res://scripts/inputs/input_manager.gd"
+Exit="*res://scripts/ui/exit.gd"
+FaceDirections="*res://scripts/utils/face_utils.gd"
+InputManager="*res://scripts/utils/input_manager.gd"
+LevelManager="*res://scripts/levels/level_manager.gd"
 
 [display]
 
@@ -81,7 +82,9 @@ face_right={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_physics/layer_2="PlayerHurt"
 2d_physics/layer_5="Walls"
+2d_physics/layer_9="Enemy"
 
 [rendering]
 
